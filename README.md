@@ -1,34 +1,27 @@
 # Operating Systems Lab Work
 
-C lab work for Linux, run on real Linux through WSL.
+I write C lab programs for Linux and run them on Ubuntu in WSL. The repository contains the original lab briefs alongside the work for each lab folder.
 
-**Student:** Atip Shrestha  
-**Student ID:** 250660  
-**Institution:** Softwarica College of IT & E-Commerce (in collaboration with Coventry University)
+Student: Atip Shrestha  
+Student ID: 250660  
+Softwarica College of IT & E-Commerce (in collaboration with Coventry University)
 
-## Lab index
+## Labs
 
-| Lab | Status | Brief |
-| --- | --- | --- |
-| 2 | Awaiting work | Brief available locally |
-| 2.1 | Awaiting work | Brief available locally |
-| 3 | Awaiting work | Brief available locally |
-| 3.1 | Awaiting work | Brief available locally |
-| 3.2 | Awaiting work | Brief available locally |
+- [Lab 2](lab-02/)
 
-## Layout
+## Compile and run
 
-Each lab folder will contain its README and report, C source under `src/`, terminal screenshots under `screenshots/`, raw output logs under `outputs/`, and the original brief under `brief/`.
-
-## Compile and run on Linux/WSL
-
-From the relevant lab folder, compile a source file with GCC:
+From the repository root in WSL:
 
 ```sh
-gcc -Wall -Wextra -std=c11 src/program.c -o program
-./program
+cd lab-02/src
+gcc task1_alive.c -o task1
+./task1 &
+ps aux | grep task1
 ```
 
-Replace `src/program.c` with the exact source filename required by the lab brief. These commands run in a Linux shell, including Ubuntu on WSL.
+## Folders
 
+`lab-02-1/` contains the C source, original brief, terminal screenshots, output log, and lab README.
 

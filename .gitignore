@@ -1,0 +1,13 @@
+# Compiled programs and object files
+*.o
+*.out
+a.out
+
+# Editor and operating system files
+*~
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

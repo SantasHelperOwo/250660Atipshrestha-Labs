@@ -14,7 +14,7 @@ When a C program ended, it returned an exit status to the shell. A status of `0`
 
 I started the program in the background and checked its process row before it finished.
 
-In `task1_alive.c`, the loop called `sleep(1)` thirty times, then `printf` printed the finished message. The `ps aux` columns I used were `PID` for the process number, `STAT` for its state, `START` for its start time, and `COMMAND` for the command. The screenshot showed PID `516` with `STAT` `S+`: `S` indicated interruptible sleep while the process was inside `sleep()`, and `+` marked its process group as foreground for the terminal. `START` showed `04:00`, and `COMMAND` showed `./task1`. The second row appeared because the `grep task1` command itself contained the search text.
+In `task1_alive.c`, the loop called `sleep(1)` thirty times, then `printf` printed the finished message. The `ps aux` columns I used were `PID` for the process number, `STAT` for its state, `START` for its start time, and `COMMAND` for the command. The screenshot showed PID `516` with `STAT` `S`, which indicated interruptible sleep while the process was inside `sleep()`. `START` showed `04:00`, and `COMMAND` showed `./task1`. The second row appeared because the `grep task1` command itself contained the search text; that grep row had `STAT` `S+`, with `+` marking its process group as foreground for the terminal.
 
 I ran:
 
@@ -32,10 +32,10 @@ After the loop, the program printed `I am finished.`. I pressed Enter and saw Ba
 
 ```mermaid
 flowchart TD
-    A[Compile task1_alive.c] --> B[Start task1 in background]
-    B --> C[Inspect with ps]
-    C --> D[Loop sleeps for 30 seconds]
-    D --> E[Print finished message and exit]
+    A["Compile task1_alive.c"] --> B["Start task1 in background"]
+    B --> C["Inspect with ps"]
+    C --> D["Loop sleeps for 30 seconds"]
+    D --> E["Print finished message and exit"]
 ```
 
 ## Task 2: Process identity
@@ -59,10 +59,10 @@ The screenshot showed PID `1645`, PPID `1599`, and command `./task2`. `echo $$` 
 
 ```mermaid
 flowchart TD
-    A[Compile task2_identity.c] --> B[Start task2 in background]
-    B --> C[Read PID and PPID]
-    C --> D[Compare PPID with shell PID]
-    D --> E[Sleep for 20 seconds and exit]
+    A["Compile task2_identity.c"] --> B["Start task2 in background"]
+    B --> C["Read PID and PPID"]
+    C --> D["Compare PPID with shell PID"]
+    D --> E["Sleep for 20 seconds and exit"]
 ```
 
 ## Task 3: Exit codes and OS feedback
@@ -91,10 +91,10 @@ For input `5`, the program printed `Success` and the shell printed `0`. For inpu
 
 ```mermaid
 flowchart TD
-    A[Read integer] --> B{Integer is positive?}
-    B -->|Yes| C[Print Success and return 0]
-    B -->|No| D[Print Failure and return 1]
-    C --> E[Read status with echo $?]
+    A["Read integer"] --> B{"Integer is positive?"}
+    B --> C["Positive: print Success and return 0"]
+    B --> D["Other input: print Failure and return 1"]
+    C --> E["Read shell status"]
     D --> E
 ```
 
@@ -118,9 +118,9 @@ The program printed `Hello, Atip! Welcome to OS Class.` after reading the input.
 
 ```mermaid
 flowchart TD
-    A[Start task4] --> B[Read name from stdin]
-    B --> C[Write greeting to stdout]
-    C --> D[Return 0]
+    A["Start task4"] --> B["Read name from stdin"]
+    B --> C["Write greeting to stdout"]
+    C --> D["Return 0"]
 ```
 
 ## Task 5: Conditional execution and termination
@@ -149,11 +149,11 @@ For input `1`, the terminal showed PID `1273` and status `0` after the wait. For
 
 ```mermaid
 flowchart TD
-    A[Print PID and read choice] --> B{Choice is 1?}
-    B -->|Yes| C[Print Continuing and sleep 5 seconds]
-    C --> D[Return 0]
-    B -->|No| E[Print Exiting]
-    E --> F[Return 1]
+    A["Print PID and read choice"] --> B{"Choice is 1?"}
+    B --> C["Yes: print Continuing and sleep 5 seconds"]
+    C --> D["Return 0"]
+    B --> E["No: print Exiting"]
+    E --> F["Return 1"]
 ```
 
 ## Conclusion

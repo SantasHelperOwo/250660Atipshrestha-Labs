@@ -16,18 +16,18 @@ An ELF file stores information that Linux needs to start a program. The ELF head
 
 ```mermaid
 flowchart LR
-    A[procinfo.c source] --> B[Preprocessor]
-    B --> C[Compiler]
-    C --> D[Linker]
-    D --> E[ELF executable]
+    A["procinfo.c source"] --> B["Preprocessor"]
+    B --> C["Compiler"]
+    C --> D["Linker"]
+    D --> E["ELF executable"]
 ```
 
 ```mermaid
 flowchart LR
-    A[Run dynamic executable] --> B[Kernel reads ELF program headers]
-    B --> C[Start ELF interpreter]
-    C --> D[Load NEEDED shared libraries]
-    D --> E[Transfer control to program]
+    A["Run dynamic executable"] --> B["Kernel reads ELF program headers"]
+    B --> C["Start ELF interpreter"]
+    C --> D["Load NEEDED shared libraries"]
+    D --> E["Transfer control to program"]
 ```
 
 ## Program source

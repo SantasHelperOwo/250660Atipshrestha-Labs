@@ -14,18 +14,18 @@ With a position-independent executable (PIE), Linux can load the program at diff
 
 ```mermaid
 flowchart TD
-    H[High virtual addresses] --> S[Stack: calls and local variables]
-    S -->|grows down| G[Free address space]
-    G -->|grows up| HP[Heap: dynamic allocations]
-    HP --> D[Data: initialized globals and statics]
-    D --> B[BSS: uninitialized globals and statics]
-    B --> T[Text: program instructions]
-    T --> L[Low virtual addresses]
+    H["High virtual addresses"] --> S["Stack: calls and local variables"]
+    S --> G["Free address space; stack grows down"]
+    G --> HP["Heap: dynamic allocations; grows up"]
+    HP --> D["Data: initialized globals and statics"]
+    D --> B["BSS: uninitialized globals and statics"]
+    B --> T["Text: program instructions"]
+    T --> L["Low virtual addresses"]
 ```
 
 ## Listing 1: Data type sizes
 
-Aim: I ran the first listing to see the byte sizes it printed on this system.
+I ran the first listing to see the byte sizes it printed on this system.
 
 In `listing1_sizes.c`, each `sizeof` expression supplied a byte count to `%zu`. I kept the data types and order from the listing.
 
@@ -42,13 +42,13 @@ Raw output: [listing 1 log](outputs/01-listing1.txt).
 
 ```mermaid
 flowchart LR
-    A[Compile listing1_sizes.c] --> B[Run the program]
-    B --> C[Print sizeof results]
+    A["Compile listing1_sizes.c"] --> B["Run the program"]
+    B --> C["Print sizeof results"]
 ```
 
 ## Listing 2: Variable addresses
 
-Aim: I ran the second listing to print the addresses of its global, local, static and allocated variables.
+I ran the second listing to print the addresses of its global, local, static and allocated variables.
 
 `global_var` had an initial value and `bss_var` had none. `main` declared the local and static local variables, then `malloc` allocated an integer for `heap_var`. The `%p` calls printed their addresses, and `free` released the allocation.
 
@@ -65,14 +65,14 @@ Raw output: [listing 2 log](outputs/02-listing2.txt).
 
 ```mermaid
 flowchart LR
-    A[Declare global and local objects] --> B[Allocate integer with malloc]
-    B --> C[Print addresses]
-    C --> D[Free heap allocation]
+    A["Declare global and local objects"] --> B["Allocate integer with malloc"]
+    B --> C["Print addresses"]
+    C --> D["Free heap allocation"]
 ```
 
 ## Listing 3: Pointer and heap memory
 
-Aim: I ran the third listing to compare a pointer's address with the address it stored.
+I ran the third listing to compare a pointer's address with the address it stored.
 
 `forheap` was a local pointer. `malloc` returned the address of heap memory, and `*forheap = 30` stored a value there. The two `%p` calls printed the pointer object's stack address and the allocated object's heap address.
 
@@ -89,14 +89,14 @@ Raw output: [listing 3 log](outputs/03-listing3.txt).
 
 ```mermaid
 flowchart LR
-    A[Declare pointer on stack] --> B[Allocate integer on heap]
-    B --> C[Store 30 through pointer]
-    C --> D[Print both addresses and value]
+    A["Declare pointer on stack"] --> B["Allocate integer on heap"]
+    B --> C["Store 30 through pointer"]
+    C --> D["Print both addresses and value"]
 ```
 
 ## Exercise 1: Data type sizes
 
-Aim: I measured the requested data type sizes and compared them with the 64-bit column in Table I.
+I measured the requested data type sizes and compared them with the 64-bit column in Table I.
 
 The program printed `sizeof` for the types in the exercise and added `short` and a pointer for the other Table I rows. `%zu` displayed the result as an unsigned size value.
 
@@ -131,13 +131,13 @@ Raw output: [compile log](outputs/04-exercise1-compile.txt) and [program output]
 
 ```mermaid
 flowchart LR
-    A[Compile with -Wall -Wextra] --> B[Run sizeof program]
-    B --> C[Compare output with Table I]
+    A["Compile with -Wall -Wextra"] --> B["Run sizeof program"]
+    B --> C["Compare output with Table I"]
 ```
 
 ## Exercise 2: Memory segment address mapping
 
-Aim: I printed addresses for objects in the data, BSS, stack and heap, then compared the stack and heap addresses.
+I printed addresses for objects in the data, BSS, stack and heap, then compared the stack and heap addresses.
 
 The program declared initialized and uninitialized globals, a local variable, a static local and a heap allocation. It printed the address and segment label for each. `heap_var` was a stack pointer whose value addressed the heap object. The `uintptr_t` values let the program compare addresses and calculate their absolute difference; the `PRIxPTR` and `PRIuPTR` format macros printed it in hexadecimal and decimal.
 
@@ -149,7 +149,16 @@ gcc -Wall -Wextra exercise2_segments.c -o exercise2_segments
 ./exercise2_segments
 ```
 
-From the first output in screenshot 07, `heap_var` was the highest printed address, in the Stack segment, at `0x7ffe3e0c66d8`. `global_initialized` was the lowest, in Data, at `0x57159e870010`. The stack local was `0x7ffe3e0c66d4`, and the allocated heap object was `0x5715b0de4010`. Their absolute difference was `0x28e88d2e26c4`, or `44,979,266,135,748` bytes. I checked that decimal result in Bash from those printed addresses with `echo $((0x7ffe3e0c66d4 - 0x5715b0de4010))`.
+Screenshot 07 showed these addresses in the first run:
+
+| Variable | Segment | Address |
+|---|---|---|
+| `global_initialized` | Data | `0x571594e87010` |
+| `global_uninitialized` | BSS | `0x571594e8701c` |
+| `local_var` | Stack | `0x7ffe3e0c66d4` |
+| `local_static` | Data | `0x571594e87014` |
+| `heap_var` pointer | Stack | `0x7ffe3e0c66d8` |
+| `*heap_var` | Heap | `0x5715b0de4010` |
 
 ![Exercise 2 compile](screenshots/06-exercise2-compile.png)
 
@@ -164,7 +173,11 @@ size exercise2_segments
 nm exercise2_segments | grep -E "global_initialized|global_uninitialized|local_static"
 ```
 
-The two PIE runs showed different data, heap and stack addresses, consistent with address randomization. In the non-PIE run, the initialized global was at `0x404040` and the uninitialized global at `0x40404c`, matching the brief's low `0x404...` observation. In the symbol output, `global_initialized` had type `D`, `global_uninitialized` had type `B`, and `local_static` had type `d`; these letters located the objects in initialized data and BSS.
+In the symbol output, `global_initialized` had type `D`, `global_uninitialized` had type `B`, and `local_static` had type `d`; these letters located the objects in initialized data and BSS.
+
+### What I observed
+
+I saw the stack at the highest addresses and Data at the lowest. The difference between `local_var` and the allocated heap object was `0x28e88d2e26c4`, or `44,979,266,135,748` bytes; I checked it in Bash with `echo $((0x7ffe3e0c66d4 - 0x5715b0de4010))`. The two PIE runs had different addresses, while the non-PIE run placed Data and BSS at `0x404040` and `0x40404c`, consistent with ASLR varying the PIE layout.
 
 ![Exercise 2 non-PIE comparison](screenshots/08-exercise2-nopie.png)
 
@@ -174,11 +187,11 @@ Raw output: [compile log](outputs/06-exercise2-compile.txt), [two PIE runs](outp
 
 ```mermaid
 flowchart TD
-    A[Declare globals, local and static objects] --> B[Allocate heap integer]
-    B --> C[Print labelled addresses]
-    C --> D[Find highest and lowest addresses]
-    D --> E[Calculate stack-to-heap difference]
-    E --> F[Free heap allocation]
+    A["Declare globals, local and static objects"] --> B["Allocate heap integer"]
+    B --> C["Print labelled addresses"]
+    C --> D["Find highest and lowest addresses"]
+    D --> E["Calculate stack-to-heap difference"]
+    E --> F["Free heap allocation"]
 ```
 
 ## Conclusion

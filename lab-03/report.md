@@ -1,6 +1,6 @@
 # Lab 3: Data Types and OS Memory Management
 
-I compiled and ran the listings and exercises in Ubuntu on WSL 2. The brief calls the two exercises Lab 1 and Lab 2; I labelled them Exercise 1 and Exercise 2 in this folder.
+I compiled and ran the listings and exercises in Ubuntu on WSL 2. The brief calls the two exercises Lab 1 and Lab 2; I labelled them Exercise 1 and Exercise 2 in this folder. The terminal screenshot and saved output log show separate PIE runs, so their randomized addresses differ. The address table below records the screenshot run; the raw log preserves both logged runs.
 
 Environment: GCC 15.2.0; kernel `6.6.87.2-microsoft-standard-WSL2` on x86-64 WSL2.
 
@@ -123,8 +123,6 @@ The compile produced no diagnostics. The output matched the 64-bit values in Tab
 
 Raw output: [compile log](outputs/04-exercise1-compile.txt) and [program output](outputs/05-exercise1-output.txt).
 
-![Exercise 1 compile with no diagnostics](screenshots/04-exercise1-compile.png)
-
 ![Exercise 1 output](screenshots/05-exercise1-output.png)
 
 `long` can be 4 bytes on a 32-bit system and 8 bytes on a 64-bit system because the platform's data model defines its width. I only measured the supplied 64-bit WSL system and did not run a 32-bit build.
@@ -159,8 +157,6 @@ Screenshot 07 showed these addresses in the first run:
 | `local_static` | Data | `0x571594e87014` |
 | `heap_var` pointer | Stack | `0x7ffe3e0c66d8` |
 | `*heap_var` | Heap | `0x5715b0de4010` |
-
-![Exercise 2 compile](screenshots/06-exercise2-compile.png)
 
 ![Exercise 2 run twice](screenshots/07-exercise2-output.png)
 

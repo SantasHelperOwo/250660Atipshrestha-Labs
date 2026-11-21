@@ -2,7 +2,7 @@
 
 ## Introduction
 
-I compiled a small C program that reported its process information, then inspected the system headers, C library files, and static and dynamic ELF executables. I used Ubuntu in WSL on x86-64 Linux.
+I compiled a small C program that reported its process information, then inspected the system headers, C library files, and static and dynamic ELF executables. I used Ubuntu in WSL on x86-64 Linux. The screenshot and raw text output were captured in separate runs, so their process IDs differ; each PID in the description refers to the linked screenshot.
 
 Environment: `gcc (Ubuntu 15.2.0) 15.2.0`; kernel `6.6.87.2-microsoft-standard-WSL2`. I recorded these with `gcc --version` and `uname -r` in [the environment output](outputs/00-environment.txt).
 
@@ -69,7 +69,7 @@ gcc procinfo.c -o procinfo
 ./procinfo
 ```
 
-The screenshot showed PID `2882`, parent PID `2837`, the current time, and `/proc/self/exe`. The program ran in the foreground as a child of the interactive Bash shell, which printed its prompt again after the program exited. The labels and order matched the brief's sample. [Raw output](outputs/01-program-run.txt)
+The screenshot showed PID `2882`, parent PID `2837`, the current time, and `/proc/self/exe`. The separate raw output recorded PID `1950` and parent PID `1932`. The program ran in the foreground as a child of the interactive Bash shell, which printed its prompt again after the program exited. The labels and order matched the brief's sample. [Raw output](outputs/01-program-run.txt)
 
 ![Step 1: compile and run](screenshots/01-program-run.png)
 

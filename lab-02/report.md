@@ -1,6 +1,6 @@
 # Lab 2: Investigating Process Lifecycles and OS Interaction
 
-I compiled and ran five C programs in Ubuntu on WSL 2. The environment reported GCC 15.2.0 and kernel `6.6.87.2-microsoft-standard-WSL2`.
+I compiled and ran five C programs in Ubuntu on WSL 2. The environment reported GCC 15.2.0 and kernel `6.6.87.2-microsoft-standard-WSL2`. The terminal screenshots and saved output logs came from separate runs, so process IDs can differ between those records; the values in each description refer to its linked screenshot.
 
 ## Theoretical background
 
@@ -53,7 +53,7 @@ ps -p $! -o pid,ppid,cmd
 echo $$
 ```
 
-The screenshot showed PID `1645`, PPID `1599`, and command `./task2`. `echo $$` printed `1599`, so the PPID matched the Bash shell that launched the program.
+The screenshot showed PID `1645`, PPID `1599`, and command `./task2`. `echo $$` printed `1599`, so the PPID matched the Bash shell that launched the program. The separate raw log recorded PID `1581` and PPID `1575` in its own run.
 
 ![Task 2 process identity and shell PID](screenshots/03-task2-run-and-ps.png)
 
@@ -141,7 +141,7 @@ echo $?
 echo $?
 ```
 
-For input `1`, the terminal showed PID `1273` and status `0` after the wait. For input `0`, it showed PID `1294` and status `1`.
+For input `1`, the screenshot showed PID `1273` and status `0`. For input `0`, it showed PID `1294` and status `1`. The separate raw log recorded PIDs `1433` and `1435` with the same respective statuses.
 
 ![Task 5 continue choice and status](screenshots/07-task5-continue.png)
 

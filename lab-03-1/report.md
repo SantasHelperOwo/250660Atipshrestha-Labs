@@ -65,8 +65,6 @@ int main() {
 
 Raw output: [build log](outputs/01-task-a-build.txt).
 
-![Task A compile](screenshots/01-task-a-build.png)
-
 ```mermaid
 flowchart LR
     A["demo2.c"] --> B["gcc -g"]
@@ -124,6 +122,8 @@ I checked the boundaries in Bash. `check_execution` at `0x555555555169` was insi
 The address differences were `0xe9` for the function from the `.text` start, `0x8` for the string from the `.rodata` start, `0x10` for the integer from the `.data` start, and `0x18` for the pointer from the `.data` start. Bash printed “yes” for all four membership checks and confirmed `.data` preceded `.bss`. The calculations are in [the range-check log](outputs/04-range-checks.txt).
 
 ![Task C section map](screenshots/03-task-c-section-map.png)
+
+![Task C section map continuation](screenshots/03-task-c-section-map-continuation.png)
 
 ```mermaid
 flowchart LR

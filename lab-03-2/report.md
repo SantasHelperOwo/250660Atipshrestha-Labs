@@ -16,8 +16,8 @@ I ran `gcc -g demo.c -o demo` from `src/`. The command is recorded in [01-build.
 
 ```mermaid
 flowchart TD
-    A[Compile demo.c with -g] --> B[Run ./demo]
-    B --> C[Print BSS stack and heap addresses]
+    A["Compile demo.c with -g"] --> B["Run ./demo"]
+    B --> C["Print BSS stack and heap addresses"]
 ```
 
 ## Task B — Set the breakpoint
@@ -30,9 +30,9 @@ I ran `gdb ./demo`, then entered `break 23` and `run`. GDB resolved the requeste
 
 ```mermaid
 flowchart TD
-    A[Start GDB] --> B[Set break 23]
-    B --> C[Run demo]
-    C --> D[Stop at executable line 24]
+    A["Start GDB"] --> B["Set break 23"]
+    B --> C["Run demo"]
+    C --> D["Stop at executable line 24"]
 ```
 
 ## Task C — Inspect the BSS section and ELF load segment
@@ -51,9 +51,9 @@ I also ran `readelf -lW demo`. The RW `LOAD` had file size `0x278` and memory si
 
 ```mermaid
 flowchart TD
-    A[Inspect info files] --> B[Locate .bss range]
-    B --> C[Compare global address]
-    C --> D[Inspect readelf LOAD and section mapping]
+    A["Inspect info files"] --> B["Locate .bss range"]
+    B --> C["Compare global address"]
+    C --> D["Inspect readelf LOAD and section mapping"]
 ```
 
 ## Task D — Inspect process mappings
@@ -76,9 +76,9 @@ The stop values below are the exclusive end addresses shown by GDB or ELF sectio
 
 ```mermaid
 flowchart TD
-    A[Run info proc mappings] --> B[Record heap start and stop]
-    A --> C[Record stack start and stop]
-    D[Run info files] --> E[Record .bss start and stop]
+    A["Run info proc mappings"] --> B["Record heap start and stop"]
+    A --> C["Record stack start and stop"]
+    D["Run info files"] --> E["Record .bss start and stop"]
 ```
 
 ## Task E — Inspect local state and memory
@@ -103,10 +103,10 @@ I entered `continue`; the program printed `Ready for GDB inspection!` and the in
 
 ```mermaid
 flowchart TD
-    A[Read local variables] --> B[Print variable values and addresses]
-    B --> C[Examine stack words]
-    C --> D[Examine one heap word]
-    D --> E[Continue to normal exit]
+    A["Read local variables"] --> B["Print variable values and addresses"]
+    B --> C["Examine stack words"]
+    C --> D["Examine one heap word"]
+    D --> E["Continue to normal exit"]
 ```
 
 ## Post-lab questions

@@ -1,6 +1,6 @@
 # Lab 2: Investigating Process Lifecycles and OS Interaction
 
-I wrote five C programs to inspect process identity, wait during execution, return exit statuses, read standard input, and branch on user input.
+This lab contains five C programs covering process lifecycles, process identity, exit status, and standard input and output.
 
 ## Files
 
@@ -10,9 +10,9 @@ I wrote five C programs to inspect process identity, wait during execution, retu
 - `src/task4_input.c`
 - `src/task5_control.c`
 - `brief/Lab_2.pdf`
-- `report.md`
-- `outputs/` contains the raw output from each task run.
-- `screenshots/` contains terminal captures for the compile and verification steps.
+- `outputs/` contains the raw output logs.
+- `screenshots/` contains terminal captures for the task runs.
+- `report.md` records the commands, results, and explanations.
 
 ## Compile and run
 

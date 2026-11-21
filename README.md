@@ -1,6 +1,6 @@
 # Operating Systems Lab Work
 
-I write C lab programs for Linux and run them on Ubuntu in WSL. The repository contains the original lab briefs alongside the work for each lab folder.
+This repository contains five C programs for process management and OS interaction, run on Linux with Ubuntu in WSL.
 
 Student: Atip Shrestha  
 Student ID: 250660  
@@ -12,8 +12,6 @@ Softwarica College of IT & E-Commerce (in collaboration with Coventry University
 
 ## Compile and run
 
-From the repository root in WSL:
-
 ```sh
 cd lab-02/src
 gcc task1_alive.c -o task1
@@ -23,6 +21,4 @@ ps aux | grep task1
 
 ## Folders
 
-`lab-02/` contains the source, original brief, screenshots, and output log.
-
-
+`lab-02/` contains the C source files, original brief, output logs, screenshots, and report.

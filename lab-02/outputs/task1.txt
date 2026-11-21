@@ -1,14 +1,12 @@
-Script started on 2026-11-21 03:42:41+00:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="105" LINES="28"]
-[?2004h]0;l_e_n_o_v_o@LAPTOP-I3CV4DPD: /mnt/c/Users/L E N O V O/Desktop/HW/lab-02/src[01;32ml_e_n_o_v_o@LAPTOP-I3CV4DPD[00m:[01;34m/mnt/c/Users/L E N O V O/Desktop/HW/lab-02/src[00m$ gcc task1_alive.c -o task1
-[?2004l[?2004h]0;l_e_n_o_v_o@LAPTOP-I3CV4DPD: /mnt/c/Users/L E N O V O/Desktop/HW/lab-02/src[01;32ml_e_n_o_v_o@LAPTOP-I3CV4DPD[00m:[01;34m/mnt/c/Users/L E N O V O/Desktop/HW/lab-02/src[00m$ ./task1 &
-[?2004l[1] 484
-[?2004h]0;l_e_n_o_v_o@LAPTOP-I3CV4DPD: /mnt/c/Users/L E N O V O/Desktop/HW/lab-02/src[01;32ml_e_n_o_v_o@LAPTOP-I3CV4DPD[00m:[01;34m/mnt/c/Users/L E N O V O/Desktop/HW/lab-02/src[00m$ I am starting...
-ps aux | grep task1
-[?2004ll_e_n_o+     471  0.1  0.0   3236  1920 pts/0    S+   03:42   0:00 script -q -f ../outputs/[01;31m[Ktask1[m[K.txt
-l_e_n_o+     484  0.0  0.0   2764  1536 pts/2    S    03:42   0:00 ./[01;31m[Ktask1[m[K
-l_e_n_o+     489  0.0  0.0   4124  2304 pts/2    S+   03:42   0:00 grep --color=auto [01;31m[Ktask1[m[K
-[?2004h]0;l_e_n_o_v_o@LAPTOP-I3CV4DPD: /mnt/c/Users/L E N O V O/Desktop/HW/lab-02/src[01;32ml_e_n_o_v_o@LAPTOP-I3CV4DPD[00m:[01;34m/mnt/c/Users/L E N O V O/Desktop/HW/lab-02/src[00m$ I am finished.
-exit
-[?2004lexit
-
-Script done on 2026-11-21 03:43:22+00:00 [COMMAND_EXIT_CODE="0"]
++ cd '/mnt/c/Users/L E N O V O/Desktop/HW/lab-02/src'
++ gcc task1_alive.c -o task1
++ job=1353
++ sleep 0.2
++ ./task1
++ ps aux
++ grep task1
+l_e_n_o+    1353  0.0  0.0   2764  1408 pts/2    S+   04:12   0:00 ./task1
+l_e_n_o+    1356  0.0  0.0   4120  2304 pts/2    S+   04:12   0:00 grep task1
++ wait 1353
+I am starting...
+I am finished.

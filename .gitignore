@@ -16,3 +16,11 @@ Thumbs.db
 /lab-02-1/src/procinfo
 /lab-02-1/src/procinfo_static
 /lab-02-1/src/procinfo_dynamic
+
+# Lab 3 compiled executables
+/lab-03/src/listing1_sizes
+/lab-03/src/listing2_addresses
+/lab-03/src/listing3_pointer
+/lab-03/src/exercise1_sizes
+/lab-03/src/exercise2_segments
+/lab-03/src/exercise2_segments_nopie

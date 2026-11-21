@@ -1,0 +1,14 @@
++ cd '/mnt/c/Users/L E N O V O/Desktop/HW/lab-02/src'
++ gcc task5_control.c -o task5
++ echo 1
++ ./task5
+Current PID: 1433
+Do you want to continue? (1 for Yes, 0 for No): Continuing...
++ echo 0
+0
++ echo 0
++ ./task5
+Current PID: 1435
+Do you want to continue? (1 for Yes, 0 for No): Exiting...
++ echo 1
+1

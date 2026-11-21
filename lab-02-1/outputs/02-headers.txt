@@ -1,0 +1,5 @@
+/usr/include/stdio.h
+/usr/include/unistd.h
+/* Maximum length of printf output for a NaN.  */
+extern int fprintf (FILE *__restrict __stream,
+extern __pid_t getpid (void) __THROW;

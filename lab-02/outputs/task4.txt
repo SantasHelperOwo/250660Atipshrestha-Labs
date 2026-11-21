@@ -1,0 +1,5 @@
++ cd '/mnt/c/Users/L E N O V O/Desktop/HW/lab-02/src'
++ gcc task4_input.c -o task4
++ echo Atip
++ ./task4
+Enter your name: Hello, Atip! Welcome to OS Class.

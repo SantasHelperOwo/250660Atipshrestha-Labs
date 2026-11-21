@@ -62,20 +62,20 @@ int main(void) {
 
 ## Step 1: Compile and run
 
-Aim: I compiled `procinfo.c` and ran it to display the process details.
+I compiled `procinfo.c` and ran it to display the process details.
 
 ```sh
 gcc procinfo.c -o procinfo
 ./procinfo
 ```
 
-The screenshot run showed PID `2180`, parent PID `2135`, the current time, and `/proc/self/exe`. The separate headless log recorded PID `1950` and parent PID `1932`; the IDs and time changed between runs. In both cases the program ran in the foreground as a child of the interactive Bash shell, which printed its prompt again after the program exited. The labels and order matched the brief's sample. [Raw output](outputs/01-program-run.txt)
+The screenshot showed PID `2882`, parent PID `2837`, the current time, and `/proc/self/exe`. The program ran in the foreground as a child of the interactive Bash shell, which printed its prompt again after the program exited. The labels and order matched the brief's sample. [Raw output](outputs/01-program-run.txt)
 
 ![Step 1: compile and run](screenshots/01-program-run.png)
 
 ## Step 2: Check the headers
 
-Aim: I located the two headers and searched them for the function declarations.
+I checked for the standard headers and searched their declarations.
 
 ```sh
 ls /usr/include/stdio.h /usr/include/unistd.h
@@ -89,9 +89,10 @@ Both header paths existed. The `getpid` search returned its declaration. The fir
 
 ## Step 3: Find the library files
 
-Aim: I checked the requested locations for the shared library and archive.
+I located the shared library and archive in the requested directories.
 
 ```sh
+pwd
 ls /lib/x86_64-linux-gnu/libc.so*
 ls /usr/lib/x86_64-linux-gnu/libc.a
 ```
@@ -102,7 +103,7 @@ The shared-library search listed `libc.so` and `libc.so.6` under `/lib/x86_64-li
 
 ## Step 4: Compare static and dynamic builds
 
-Aim: I made one static executable and one default dynamically linked executable, then compared their sizes.
+I built static and dynamic executables and compared their sizes.
 
 ```sh
 gcc -static procinfo.c -o procinfo_static
@@ -116,19 +117,20 @@ The dynamic executable was `16K`; the static executable was `961K`. The larger s
 
 ## Step 5: Read the dynamic ELF header
 
-Aim: I inspected the dynamic executable's ELF header.
+I inspected the dynamic executable's ELF header.
 
 ```sh
+pwd
 readelf -h procinfo_dynamic
 ```
 
-The file was ELF64, little-endian, type `DYN` (position-independent executable), and machine `Advanced Micro Devices X86-64`. Its entry point was `0x1140`. [Raw output](outputs/05-elf-header-dynamic.txt)
+The file was ELF64, little-endian, and for `Advanced Micro Devices X86-64`, with entry point `0x1140`. Its type was `DYN` (position-independent executable), which identified it as a position-independent executable that used dynamic linking. [Raw output](outputs/05-elf-header-dynamic.txt)
 
 ![Step 5: dynamic ELF header](screenshots/05-elf-header-dynamic.png)
 
 ## Step 6: Read the dynamic program headers
 
-Aim: I inspected the loadable segments, interpreter, and stack permissions.
+I inspected the loadable segments, interpreter, and stack permissions.
 
 ```sh
 readelf -l procinfo_dynamic
@@ -141,51 +143,53 @@ readelf -l procinfo_dynamic | head -24
 readelf -l procinfo_dynamic | tail -24
 ```
 
-I split the terminal evidence across two views so the entries remained readable. The requested interpreter was `/lib64/ld-linux-x86-64.so.2`. The output listed four `LOAD` segments with `R`, `R E`, `R`, and `RW` flags. `GNU_STACK` had `RW` flags, without an execute flag.
+I split the terminal evidence across two views so the entries remained readable. `INTERP` named `/lib64/ld-linux-x86-64.so.2`, the dynamic linker that loads the executable's shared libraries before the program starts. The four `LOAD` segments used `R` for read-only data, `R E` for executable code, and `RW` for writable data. `GNU_STACK` had `RW` flags, so the stack was readable and writable but not executable.
 
-![Step 6: program headers, first view](screenshots/06-program-headers-dynamic-1.png)
+![Step 6a: program headers, first view](screenshots/06a-program-headers-dynamic.png)
 
-![Step 6: program headers, second view](screenshots/07-program-headers-dynamic-2.png)
+![Step 6b: program headers, second view](screenshots/06b-program-headers-dynamic.png)
 
 ## Step 7: Read the dynamic section
 
-Aim: I checked which shared libraries the dynamic executable requested.
+I checked which shared libraries the dynamic executable requested.
 
 ```sh
 readelf -d procinfo_dynamic
 ```
 
-The `NEEDED` entry named `libc.so.6`. The dynamic section contained 27 entries. [Raw output](outputs/07-dynamic-section.txt)
+The `NEEDED` entry named `libc.so.6`. This tag told the dynamic linker that the executable required that shared library. The dynamic section contained 27 entries. [Raw output](outputs/07-dynamic-section.txt)
 
-![Step 7: dynamic section](screenshots/08-dynamic-section.png)
+![Step 7: dynamic section](screenshots/07-dynamic-section.png)
 
 ## Step 8: Resolve dynamic dependencies
 
-Aim: I used `ldd` to see the shared libraries resolved for the dynamic executable.
+I used `ldd` to see the shared libraries resolved for the dynamic executable, then checked the `/lib` directory link.
 
 ```sh
 ldd procinfo_dynamic
+ls -ld /lib
 ```
 
-`libc.so.6` resolved to `/usr/lib/x86_64-linux-gnu/libc.so.6`. The output also listed `linux-vdso.so.1` and the interpreter `/lib64/ld-linux-x86-64.so.2`. [Raw output](outputs/08-ldd-dynamic.txt)
+`libc.so.6` resolved to `/usr/lib/x86_64-linux-gnu/libc.so.6`. `ls -ld /lib` showed `/lib -> usr/lib`, so `/lib` linked to the directory containing the resolved library. The brief's sample used a `/lib/...` path; my output used `/usr/lib/...` because of this directory link. `ldd` also listed `linux-vdso.so.1` and `/lib64/ld-linux-x86-64.so.2`. [Raw output](outputs/08-ldd-dynamic.txt)
 
-![Step 8: dynamic dependencies](screenshots/09-ldd-dynamic.png)
+![Step 8: dynamic dependencies](screenshots/08-ldd-dynamic.png)
 
 ## Step 9: Check the static executable with ldd
 
-Aim: I checked whether the static executable had dynamic dependencies.
+I checked whether the static executable had dynamic dependencies.
 
 ```sh
+pwd
 ldd procinfo_static
 ```
 
 `ldd` printed `not a dynamic executable`, consistent with the static link. [Raw output](outputs/09-ldd-static.txt)
 
-![Step 9: static ldd result](screenshots/10-ldd-static.png)
+![Step 9: static ldd result](screenshots/09-ldd-static.png)
 
 ## Step 10: Compare the static ELF metadata
 
-Aim: I checked the static file's header, interpreter entry, and dynamic section.
+I compared the static file's ELF type, interpreter entry, and dynamic section with the dynamic build.
 
 ```sh
 readelf -h procinfo_static
@@ -193,9 +197,9 @@ readelf -l procinfo_static | grep INTERP
 readelf -d procinfo_static
 ```
 
-The header identified an ELF64 `EXEC` file for `Advanced Micro Devices X86-64`, with entry point `0x401900`. The `grep INTERP` command printed no matching entry, and `readelf -d` reported that the file had no dynamic section. [Raw output](outputs/10-static-comparison.txt)
+The header identified an ELF64 `EXEC` file for `Advanced Micro Devices X86-64`, with entry point `0x401900`. `DYN` identified the dynamically linked position-independent executable; `EXEC` identified this static executable. The `grep INTERP` command printed no matching entry, and `readelf -d` reported that the file had no dynamic section. The static executable included its required library code, so it did not need a dynamic linker or runtime dependency entries. [Raw output](outputs/10-static-comparison.txt)
 
-![Step 10: static ELF comparison](screenshots/11-static-elf-comparison.png)
+![Step 10: static ELF comparison](screenshots/10-static-elf-comparison.png)
 
 ## Knowledge check
 

@@ -1,0 +1,8 @@
+.......Variable Addresses.......
+
+global_var: 0x5e9193da8010 (Data/BSS)
+bss_var: 0x5e9193da801c (Data/BSS)
+local_var: 0x7ffd27dba4fc (Stack)
+local_static: 0x5e9193da8014 (Data/BSS)
+heap_var ptr: 0x7ffd27dba500 (Stack - pointer)
+ *heap_var: 0x5e91ba091010 (Heap - data)

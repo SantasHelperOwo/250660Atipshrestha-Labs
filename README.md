@@ -1,38 +1,45 @@
 # Operating Systems Lab Work
 
-This repository contains C programs and walkthroughs for Operating Systems labs, run on Linux with Ubuntu in WSL.
-
-Student: Atip Shrestha  
-Student ID: 250660  
-Softwarica College of IT & E-Commerce (in collaboration with Coventry University)
+C programs and reports for five operating-systems labs, run in Ubuntu on WSL.
 
 ## Labs
 
-- [Lab 2](lab-02/)
-- [Lab 2.1: C Libraries, Linking, and ELF](lab-02-1/)
-- [Lab 3: Data Types and OS Memory Management](lab-03/)
-- [Lab 3.1: Text and Initialized Data Segments](lab-03-1/)
-- [Lab 3.2: BSS, Heap and Stack with GDB](lab-03-2/)
+- [Lab 2: Process Lifecycles](lab-02/) · [report](lab-02/report.md) · [screenshots](lab-02/screenshots/)
+- [Lab 2.1: C Libraries, Linking and ELF](lab-02-1/) · [report](lab-02-1/report.md) · [screenshots](lab-02-1/screenshots/)
+- [Lab 3: Data Types and Memory](lab-03/) · [report](lab-03/report.md) · [screenshots](lab-03/screenshots/)
+- [Lab 3.1: Text and Initialized Data](lab-03-1/) · [report](lab-03-1/report.md) · [screenshots](lab-03-1/screenshots/)
+- [Lab 3.2: BSS, Heap and Stack](lab-03-2/) · [report](lab-03-2/report.md) · [screenshots](lab-03-2/screenshots/)
 
-## Lab 2 compile and run
+## Compile examples
 
-```sh
-cd lab-02/src
-gcc task1_alive.c -o task1
-./task1 &
-ps aux | grep task1
-```
+Run these from Ubuntu on WSL. Each example uses a source file in that lab's `src/` folder.
 
-## Lab 3 compile and run
+### Lab 2
 
 ```sh
-cd lab-03/src
-gcc -Wall -Wextra exercise1_sizes.c -o exercise1_sizes
-./exercise1_sizes
-gcc -Wall -Wextra exercise2_segments.c -o exercise2_segments
-./exercise2_segments
+cd lab-02/src && gcc task1_alive.c -o task1
 ```
 
-## Folders
+### Lab 2.1
 
-`lab-02/` contains the process-management lab files. `lab-02-1/` contains the C libraries and ELF walkthrough, its original brief, output logs, screenshots, source, and report.
+```sh
+cd lab-02-1/src && gcc procinfo.c -o procinfo
+```
+
+### Lab 3
+
+```sh
+cd lab-03/src && gcc -Wall -Wextra exercise1_sizes.c -o exercise1_sizes
+```
+
+### Lab 3.1
+
+```sh
+cd lab-03-1/src && gcc -g demo2.c -o demo2
+```
+
+### Lab 3.2
+
+```sh
+cd lab-03-2/src && gcc -g demo.c -o demo
+```

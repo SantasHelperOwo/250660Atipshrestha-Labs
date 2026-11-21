@@ -1,0 +1,6 @@
+check_execution offset in .text: 0xe9; in range: yes
+string offset in .rodata: 0x8; in range: yes
+global offset in .data: 0x10; in range: yes
+pointer offset in .data: 0x18; in range: yes
+.data before .bss: yes
+section sizes: .text=0x18f .rodata=0xe8 .data=0x20 .bss=0x8

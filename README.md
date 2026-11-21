@@ -12,6 +12,7 @@ Softwarica College of IT & E-Commerce (in collaboration with Coventry University
 - [Lab 2.1: C Libraries, Linking, and ELF](lab-02-1/)
 - [Lab 3: Data Types and OS Memory Management](lab-03/)
 - [Lab 3.1: Text and Initialized Data Segments](lab-03-1/)
+- [Lab 3.2: BSS, Heap and Stack with GDB](lab-03-2/)
 
 ## Lab 2 compile and run
 

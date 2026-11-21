@@ -1,0 +1,2 @@
+-rwxrwxrwx 1 l_e_n_o_v_o l_e_n_o_v_o  16K Nov 21 04:35 procinfo_dynamic
+-rwxrwxrwx 1 l_e_n_o_v_o l_e_n_o_v_o 961K Nov 21 04:35 procinfo_static

@@ -60,7 +60,7 @@ flowchart TD
 
 Aim: I recorded the live heap and stack mapping limits.
 
-I ran `info proc mappings`. The `[heap]` mapping ran from `0x0000555555559000` to `0x000055555557a000`, and `[stack]` ran from `0x00007ffffffde000` to `0x00007ffffffff000`. The `heap_ptr` value, `0x555555559010`, was inside the heap mapping; the local variable address, `0x7fffffffdb8c`, was inside the stack mapping.
+I ran `info proc mappings`. The `[heap]` mapping ran from `0x0000555555559000` to `0x000055555557a000`, and `[stack]` ran from `0x00007ffffffdd000` to `0x00007ffffffff000`. The `heap_ptr` value, `0x555555559010`, was inside the heap mapping; the local variable address, `0x7fffffffdb8c`, was inside the stack mapping.
 
 ![Process heap and stack mappings](screenshots/04-proc-mappings.png)
 
@@ -68,11 +68,11 @@ I ran `info proc mappings`. The `[heap]` mapping ran from `0x0000555555559000` t
 
 The stop values below are the exclusive end addresses shown by GDB or ELF section output.
 
-| Region | Start address | Stop address | Evidence |
-| --- | --- | --- | --- |
-| `.bss` | `0x0000555555558010` | `0x0000555555558018` | `info files` |
-| `[heap]` | `0x0000555555559000` | `0x000055555557a000` | `info proc mappings` |
-| `[stack]` | `0x00007ffffffde000` | `0x00007ffffffff000` | `info proc mappings` |
+| Region | Start address | Stop address | Size | Evidence |
+| --- | --- | --- | --- | --- |
+| `.bss` | `0x0000555555558010` | `0x0000555555558018` | `0x8` | `info files` |
+| `[heap]` | `0x0000555555559000` | `0x000055555557a000` | `0x21000` | `info proc mappings` |
+| `[stack]` | `0x00007ffffffdd000` | `0x00007ffffffff000` | `0x22000` | `info proc mappings` |
 
 ```mermaid
 flowchart TD
@@ -113,10 +113,10 @@ flowchart TD
 
 ### 1. How did the stack and heap move toward each other?
 
-In the captured mapping, the heap ended at `0x000055555557a000` and the stack began at `0x00007ffffffde000`. The address gap was:
+In the captured mapping, the heap ended at `0x000055555557a000` and the stack began at `0x00007ffffffdd000`. The address gap was:
 
 ```text
-0x00007ffffffde000 - 0x000055555557a000 = 0x00002aaaaaa64000
+0x00007ffffffdd000 - 0x000055555557a000 = 0x00002aaaaaa63000
 ```
 
 The observed heap value `0x555555559010` was `0x10` bytes above the heap start `0x555555559000`. The local variable at `0x7fffffffdb8c` was `0xc` (12) bytes above `$sp = 0x7fffffffdb80`. These address offsets locate the observed objects within their respective regions. During expansion, the heap generally grows toward higher addresses and the stack toward lower addresses, so both consume the gap between their mapped ranges. This single mapping shows the boundaries and gap; it does not capture multiple expansion cycles.

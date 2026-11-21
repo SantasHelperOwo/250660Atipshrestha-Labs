@@ -1,6 +1,6 @@
 # Operating Systems Lab Work
 
-This repository contains five C programs for process management and OS interaction, run on Linux with Ubuntu in WSL.
+This repository contains C programs and walkthroughs for Operating Systems labs, run on Linux with Ubuntu in WSL.
 
 Student: Atip Shrestha  
 Student ID: 250660  
@@ -9,8 +9,9 @@ Softwarica College of IT & E-Commerce (in collaboration with Coventry University
 ## Labs
 
 - [Lab 2](lab-02/)
+- [Lab 2.1: C Libraries, Linking, and ELF](lab-02-1/)
 
-## Compile and run
+## Lab 2 compile and run
 
 ```sh
 cd lab-02/src
@@ -21,4 +22,4 @@ ps aux | grep task1
 
 ## Folders
 
-`lab-02/` contains the C source files, original brief, output logs, screenshots, and report.
+`lab-02/` contains the process-management lab files. `lab-02-1/` contains the C libraries and ELF walkthrough, its original brief, output logs, screenshots, source, and report.

@@ -1,12 +1,6 @@
-+ cd '/mnt/c/Users/L E N O V O/Desktop/HW/lab-02/src'
-+ gcc task2_identity.c -o task2
-+ job=1380
-+ sleep 0.2
-+ ./task2
-+ ps -p 1380 -o pid,ppid,cmd
     PID    PPID CMD
-   1380    1374 ./task2
-+ wait 1380
-My PID is: 1380
-My Parent PID is: 1374
+   1581    1575 ./task2
+1575
+My PID is: 1581
+My Parent PID is: 1575
 Sleeping for 20 seconds...

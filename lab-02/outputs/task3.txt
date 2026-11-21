@@ -1,0 +1,12 @@
++ cd '/mnt/c/Users/L E N O V O/Desktop/HW/lab-02/src'
++ gcc task3_exit.c -o task3
++ echo 5
++ ./task3
+Enter a number (positive for success, negative for fail): Success
+0
++ echo 0
++ echo -5
++ ./task3
+Enter a number (positive for success, negative for fail): Failure
+1
++ echo 1

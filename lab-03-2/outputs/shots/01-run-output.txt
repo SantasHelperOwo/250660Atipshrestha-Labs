@@ -1,0 +1,6 @@
+$ ./demo
+Addresses:
+BSS (Global): 0x61853aa26014
+Stack (Local): 0x7ffffd9107ec
+Heap (Dynamic): 0x61853aa21010
+Ready for GDB inspection!

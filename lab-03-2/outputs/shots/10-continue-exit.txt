@@ -1,0 +1,5 @@
+(gdb) continue
+Continuing.
+Ready for GDB inspection!
+[Inferior 1 (process 660) exited normally]
+(gdb) quit

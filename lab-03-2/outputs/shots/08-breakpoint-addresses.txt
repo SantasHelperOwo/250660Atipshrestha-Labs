@@ -1,0 +1,10 @@
+$ gdb ./demo
+(gdb) break 23
+Breakpoint 1 at 0x1277: file demo.c, line 24.
+(gdb) run
+Addresses:
+BSS (Global): 0x555555558014
+Stack (Local): 0x7fffffffdb8c
+Heap (Dynamic): 0x555555559010
+Breakpoint 1, main () at demo.c:24
+24          printf("Ready for GDB inspection!\n");

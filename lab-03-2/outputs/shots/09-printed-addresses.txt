@@ -1,0 +1,8 @@
+(gdb) print &bss_global_var
+$1 = (int *) 0x555555558014 <bss_global_var>
+(gdb) print stack_local_var
+$2 = 42
+(gdb) print &stack_local_var
+$3 = (int *) 0x7fffffffdb8c
+(gdb) print heap_ptr
+$4 = (int *) 0x555555559010

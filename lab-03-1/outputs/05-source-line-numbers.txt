@@ -1,0 +1,25 @@
+     1	#include <stdio.h>
+     2	
+     3	// 1. Data Section (Initialized global data)
+     4	int data_global_var = 0x12345678;
+     5	
+     6	// 2. RoData Section (Read-only string constant literal)
+     7	const char *text_string_literal = " Text_Segment_Verification";
+     8	
+     9	// 3. Text Section (Function execution code block)
+    10	void check_execution() {
+    11	    printf("Executing within the text segment instruction block.\n");
+    12	}
+    13	
+    14	int main() {
+    15	    printf("Addresses:\n");
+    16	    printf("Data (Global Initialized): %p\n", (void *)&data_global_var);
+    17	    printf("Text String (ROData): %p\n", (void *)text_string_literal);
+    18	    printf("Text Code (Function): %p\n", (void *)&check_execution);
+    19	
+    20	    check_execution();
+    21	
+    22	    // Breakpoint here to inspect text and data layers
+    23	    printf("Ready for Text/Data segment inspection!\n");
+    24	    return 0;
+    25	}

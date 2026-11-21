@@ -1,0 +1,176 @@
+GNU gdb (Ubuntu 17.1-2ubuntu1) 17.1
+Copyright (C) 2025 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<https://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from ./demo2...
+(gdb) Breakpoint 1 at 0x11f9: file demo2.c, line 23.
+(gdb) Starting program: /mnt/c/Users/L E N O V O/Desktop/HW/lab-03-1/src/demo2 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Breakpoint 1, main () at demo2.c:23
+23	    printf("Ready for Text/Data segment inspection!\n");
+(gdb) Symbols from "/mnt/c/Users/L E N O V O/Desktop/HW/lab-03-1/src/demo2".
+Native process:
+	Using the running image of child process 5582.
+	While running this, GDB does not access memory from...
+Local exec file:
+	`/mnt/c/Users/L E N O V O/Desktop/HW/lab-03-1/src/demo2', 
+        file type elf64-x86-64.
+	Entry point: 0x555555555080
+	0x0000555555554350 - 0x0000555555554374 is .note.gnu.build-id
+	0x0000555555554374 - 0x0000555555554390 is .interp
+	0x0000555555554390 - 0x00005555555543b4 is .gnu.hash
+	0x00005555555543b8 - 0x0000555555554478 is .dynsym
+	0x0000555555554478 - 0x000055555555450c is .dynstr
+	0x000055555555450c - 0x000055555555451c is .gnu.version
+	0x0000555555554520 - 0x0000555555554550 is .gnu.version_r
+	0x0000555555554550 - 0x0000555555554628 is .rela.dyn
+	0x0000555555554628 - 0x0000555555554658 is .rela.plt
+	0x0000555555555000 - 0x000055555555501b is .init
+	0x0000555555555020 - 0x0000555555555050 is .plt
+	0x0000555555555050 - 0x0000555555555060 is .plt.got
+	0x0000555555555060 - 0x0000555555555080 is .plt.sec
+	0x0000555555555080 - 0x000055555555520f is .text
+	0x0000555555555210 - 0x000055555555521d is .fini
+	0x0000555555556000 - 0x00005555555560e8 is .rodata
+	0x00005555555560e8 - 0x0000555555556124 is .eh_frame_hdr
+	0x0000555555556128 - 0x00005555555561f4 is .eh_frame
+	0x00005555555561f8 - 0x0000555555556228 is .note.gnu.property
+	0x0000555555556228 - 0x0000555555556248 is .note.ABI-tag
+	0x0000555555557db0 - 0x0000555555557db8 is .init_array
+	0x0000555555557db8 - 0x0000555555557dc0 is .fini_array
+	0x0000555555557dc0 - 0x0000555555557fb0 is .dynamic
+	0x0000555555557fb0 - 0x0000555555558000 is .got
+	0x0000555555558000 - 0x0000555555558020 is .data
+	0x0000555555558020 - 0x0000555555558028 is .bss
+	0x00007ffff7fc02a8 - 0x00007ffff7fc02cc is .note.gnu.build-id in /lib64/ld-linux-x86-64.so.2
+	0x00007ffff7fc02d0 - 0x00007ffff7fc0408 is .hash in /lib64/ld-linux-x86-64.so.2
+	0x00007ffff7fc0408 - 0x00007ffff7fc0564 is .gnu.hash in /lib64/ld-linux-x86-64.so.2
+	0x00007ffff7fc0568 - 0x00007ffff7fc0910 is .dynsym in /lib64/ld-linux-x86-64.so.2
+	0x00007ffff7fc0910 - 0x00007ffff7fc0bc1 is .dynstr in /lib64/ld-linux-x86-64.so.2
+	0x00007ffff7fc0bc2 - 0x00007ffff7fc0c10 is .gnu.version in /lib64/ld-linux-x86-64.so.2
+	0x00007ffff7fc0c10 - 0x00007ffff7fc0cfc is .gnu.version_d in /lib64/ld-linux-x86-64.so.2
+	0x00007ffff7fc0d00 - 0x00007ffff7fc0d18 is .rela.dyn in /lib64/ld-linux-x86-64.so.2
+	0x00007ffff7fc0d18 - 0x00007ffff7fc0d40 is .relr.dyn in /lib64/ld-linux-x86-64.so.2
+	0x00007ffff7fc1000 - 0x00007ffff7fef1f5 is .text in /lib64/ld-linux-x86-64.so.2
+	0x00007ffff7ff0000 - 0x00007ffff7ff68a0 is .rodata in /lib64/ld-linux-x86-64.so.2
+	0x00007ffff7ff68a0 - 0x00007ffff7ff68a1 is .stapsdt.base in /lib64/ld-linux-x86-64.so.2
+	0x00007ffff7ff68a4 - 0x00007ffff7ff7418 is .eh_frame_hdr in /lib64/ld-linux-x86-64.so.2
+	0x00007ffff7ff7418 - 0x00007ffff7ffa798 is .eh_frame in /lib64/ld-linux-x86-64.so.2
+	0x00007ffff7ffa798 - 0x00007ffff7ffa7b8 is .note.gnu.property in /lib64/ld-linux-x86-64.so.2
+	0x00007ffff7ffb5a0 - 0x00007ffff7ffce60 is .data.rel.ro in /lib64/ld-linux-x86-64.so.2
+	0x00007ffff7ffce60 - 0x00007ffff7ffcfe0 is .dynamic in /lib64/ld-linux-x86-64.so.2
+	0x00007ffff7ffcfe0 - 0x00007ffff7ffd000 is .got in /lib64/ld-linux-x86-64.so.2
+	0x00007ffff7ffd000 - 0x00007ffff7ffd84c is .data in /lib64/ld-linux-x86-64.so.2
+	0x00007ffff7ffd860 - 0x00007ffff7ffe2e0 is .bss in /lib64/ld-linux-x86-64.so.2
+	0x00007ffff7fbe120 - 0x00007ffff7fbe168 is .hash in system-supplied DSO at 0x7ffff7fbe000
+	0x00007ffff7fbe168 - 0x00007ffff7fbe1c4 is .gnu.hash in system-supplied DSO at 0x7ffff7fbe000
+	0x00007ffff7fbe1c8 - 0x00007ffff7fbe300 is .dynsym in system-supplied DSO at 0x7ffff7fbe000
+	0x00007ffff7fbe300 - 0x00007ffff7fbe38b is .dynstr in system-supplied DSO at 0x7ffff7fbe000
+	0x00007ffff7fbe38c - 0x00007ffff7fbe3a6 is .gnu.version in system-supplied DSO at 0x7ffff7fbe000
+	0x00007ffff7fbe3a8 - 0x00007ffff7fbe3e0 is .gnu.version_d in system-supplied DSO at 0x7ffff7fbe000
+	0x00007ffff7fbe3e0 - 0x00007ffff7fbe4f0 is .dynamic in system-supplied DSO at 0x7ffff7fbe000
+	0x00007ffff7fbe4f0 - 0x00007ffff7fbe544 is .note in system-supplied DSO at 0x7ffff7fbe000
+	0x00007ffff7fbe544 - 0x00007ffff7fbe590 is .eh_frame_hdr in system-supplied DSO at 0x7ffff7fbe000
+	0x00007ffff7fbe590 - 0x00007ffff7fbe6c0 is .eh_frame in system-supplied DSO at 0x7ffff7fbe000
+	0x00007ffff7fbe6c0 - 0x00007ffff7fbef10 is .text in system-supplied DSO at 0x7ffff7fbe000
+	0x00007ffff7fbef10 - 0x00007ffff7fbefe2 is .altinstructions in system-supplied DSO at 0x7ffff7fbe000
+	0x00007ffff7fbefe2 - 0x00007ffff7fbf01e is .altinstr_replacement in system-supplied DSO at 0x7ffff7fbe000
+	0x00007ffff7c00388 - 0x00007ffff7c003ac is .note.gnu.build-id in /usr/lib/x86_64-linux-gnu/libc.so.6
+	0x00007ffff7c003b0 - 0x00007ffff7c04570 is .hash in /usr/lib/x86_64-linux-gnu/libc.so.6
+	0x00007ffff7c04570 - 0x00007ffff7c096c4 is .gnu.hash in /usr/lib/x86_64-linux-gnu/libc.so.6
+	0x00007ffff7c096c8 - 0x00007ffff7c1c1c0 is .dynsym in /usr/lib/x86_64-linux-gnu/libc.so.6
+	0x00007ffff7c1c1c0 - 0x00007ffff7c24b88 is .dynstr in /usr/lib/x86_64-linux-gnu/libc.so.6
+	0x00007ffff7c24b88 - 0x00007ffff7c26472 is .gnu.version in /usr/lib/x86_64-linux-gnu/libc.so.6
+	0x00007ffff7c26478 - 0x00007ffff7c26ac8 is .gnu.version_d in /usr/lib/x86_64-linux-gnu/libc.so.6
+	0x00007ffff7c26ac8 - 0x00007ffff7c26b18 is .gnu.version_r in /usr/lib/x86_64-linux-gnu/libc.so.6
+	0x00007ffff7c26b18 - 0x00007ffff7c27340 is .rela.dyn in /usr/lib/x86_64-linux-gnu/libc.so.6
+	0x00007ffff7c27340 - 0x00007ffff7c278e0 is .rela.plt in /usr/lib/x86_64-linux-gnu/libc.so.6
+	0x00007ffff7c278e0 - 0x00007ffff7c279f8 is .relr.dyn in /usr/lib/x86_64-linux-gnu/libc.so.6
+	0x00007ffff7c28000 - 0x00007ffff7c283d0 is .plt in /usr/lib/x86_64-linux-gnu/libc.so.6
+	0x00007ffff7c283d0 - 0x00007ffff7c283f0 is .plt.got in /usr/lib/x86_64-linux-gnu/libc.so.6
+	0x00007ffff7c283f0 - 0x00007ffff7c287b0 is .plt.sec in /usr/lib/x86_64-linux-gnu/libc.so.6
+	0x00007ffff7c287c0 - 0x00007ffff7dbf999 is .text in /usr/lib/x86_64-linux-gnu/libc.so.6
+	0x00007ffff7dc0000 - 0x00007ffff7de6720 is .rodata in /usr/lib/x86_64-linux-gnu/libc.so.6
+	0x00007ffff7de6720 - 0x00007ffff7de6721 is .stapsdt.base in /usr/lib/x86_64-linux-gnu/libc.so.6
+	0x00007ffff7de6740 - 0x00007ffff7de67a0 is rodata.cst32 in /usr/lib/x86_64-linux-gnu/libc.so.6
+	0x00007ffff7de67a0 - 0x00007ffff7de67bc is .interp in /usr/lib/x86_64-linux-gnu/libc.so.6
+	0x00007ffff7de67bc - 0x00007ffff7dedf70 is .eh_frame_hdr in /usr/lib/x86_64-linux-gnu/libc.so.6
+	0x00007ffff7dedf70 - 0x00007ffff7e0d4cc is .eh_frame in /usr/lib/x86_64-linux-gnu/libc.so.6
+	0x00007ffff7e0d4cc - 0x00007ffff7e0db1c is .gcc_except_table in /usr/lib/x86_64-linux-gnu/libc.so.6
+	0x00007ffff7e0db20 - 0x00007ffff7e0db50 is .note.gnu.property in /usr/lib/x86_64-linux-gnu/libc.so.6
+	0x00007ffff7e0db50 - 0x00007ffff7e0db70 is .note.ABI-tag in /usr/lib/x86_64-linux-gnu/libc.so.6
+	0x00007ffff7e0eb98 - 0x00007ffff7e0ebc8 is .tdata in /usr/lib/x86_64-linux-gnu/libc.so.6
+	0x00007ffff7e0ebc8 - 0x00007ffff7e0ec18 is .tbss in /usr/lib/x86_64-linux-gnu/libc.so.6
+	0x00007ffff7e0ebc8 - 0x00007ffff7e0ebe0 is .init_array in /usr/lib/x86_64-linux-gnu/libc.so.6
+	0x00007ffff7e0ebe0 - 0x00007ffff7e11940 is .data.rel.ro in /usr/lib/x86_64-linux-gnu/libc.so.6
+	0x00007ffff7e11940 - 0x00007ffff7e11b80 is .dynamic in /usr/lib/x86_64-linux-gnu/libc.so.6
+	0x00007ffff7e11b80 - 0x00007ffff7e11ff8 is .got in /usr/lib/x86_64-linux-gnu/libc.so.6
+	0x00007ffff7e12000 - 0x00007ffff7e13688 is .data in /usr/lib/x86_64-linux-gnu/libc.so.6
+	0x00007ffff7e136a0 - 0x00007ffff7e20d90 is .bss in /usr/lib/x86_64-linux-gnu/libc.so.6
+(gdb) $1 = (int *) 0x555555558010 <data_global_var>
+(gdb) 0x555555558010 <data_global_var>:	0x12345678
+(gdb) $2 = 0x555555556008 " Text_Segment_Verification"
+(gdb) 0x555555556008:	" Text_Segment_Verification"
+(gdb) $3 = (const char **) 0x555555558018 <text_string_literal>
+(gdb) 0x555555558010 <data_global_var>:	0x78	0x56	0x34	0x12
+(gdb) process 5582
+Mapped address spaces:
+
+Start Addr         End Addr           Size               Offset             Perms File 
+0x0000555555554000 0x0000555555555000 0x1000             0x0                r--p  /mnt/c/Users/L E N O V O/Desktop/HW/lab-03-1/src/demo2 
+0x0000555555555000 0x0000555555556000 0x1000             0x1000             r-xp  /mnt/c/Users/L E N O V O/Desktop/HW/lab-03-1/src/demo2 
+0x0000555555556000 0x0000555555557000 0x1000             0x2000             r--p  /mnt/c/Users/L E N O V O/Desktop/HW/lab-03-1/src/demo2 
+0x0000555555557000 0x0000555555558000 0x1000             0x2000             r--p  /mnt/c/Users/L E N O V O/Desktop/HW/lab-03-1/src/demo2 
+0x0000555555558000 0x0000555555559000 0x1000             0x3000             rw-p  /mnt/c/Users/L E N O V O/Desktop/HW/lab-03-1/src/demo2 
+0x0000555555559000 0x000055555557b000 0x22000            0x0                rw-p  [heap] 
+0x00007ffff7c00000 0x00007ffff7c28000 0x28000            0x0                r--p  /usr/lib/x86_64-linux-gnu/libc.so.6 
+0x00007ffff7c28000 0x00007ffff7dc0000 0x198000           0x28000            r-xp  /usr/lib/x86_64-linux-gnu/libc.so.6 
+0x00007ffff7dc0000 0x00007ffff7e0e000 0x4e000            0x1c0000           r--p  /usr/lib/x86_64-linux-gnu/libc.so.6 
+0x00007ffff7e0e000 0x00007ffff7e12000 0x4000             0x20d000           r--p  /usr/lib/x86_64-linux-gnu/libc.so.6 
+0x00007ffff7e12000 0x00007ffff7e14000 0x2000             0x211000           rw-p  /usr/lib/x86_64-linux-gnu/libc.so.6 
+0x00007ffff7e14000 0x00007ffff7e21000 0xd000             0x0                rw-p   
+0x00007ffff7faf000 0x00007ffff7fb2000 0x3000             0x0                rw-p   
+0x00007ffff7fb8000 0x00007ffff7fba000 0x2000             0x0                rw-p   
+0x00007ffff7fba000 0x00007ffff7fbe000 0x4000             0x0                r--p  [vvar] 
+0x00007ffff7fbe000 0x00007ffff7fc0000 0x2000             0x0                r-xp  [vdso] 
+0x00007ffff7fc0000 0x00007ffff7fc1000 0x1000             0x0                r--p  /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2 
+0x00007ffff7fc1000 0x00007ffff7ff0000 0x2f000            0x1000             r-xp  /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2 
+0x00007ffff7ff0000 0x00007ffff7ffb000 0xb000             0x30000            r--p  /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2 
+0x00007ffff7ffb000 0x00007ffff7ffd000 0x2000             0x3b000            r--p  /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2 
+0x00007ffff7ffd000 0x00007ffff7ffe000 0x1000             0x3d000            rw-p  /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2 
+0x00007ffff7ffe000 0x00007ffff7fff000 0x1000             0x0                rw-p   
+0x00007ffffffde000 0x00007ffffffff000 0x21000            0x0                rw-p  [stack] 
+(gdb) Dump of assembler code for function check_execution:
+   0x0000555555555169 <+0>:	endbr64
+   0x000055555555516d <+4>:	push   %rbp
+   0x000055555555516e <+5>:	mov    %rsp,%rbp
+   0x0000555555555171 <+8>:	lea    0xeb0(%rip),%rax        # 0x555555556028
+   0x0000555555555178 <+15>:	mov    %rax,%rdi
+   0x000055555555517b <+18>:	call   0x555555555060 <puts@plt>
+   0x0000555555555180 <+23>:	nop
+   0x0000555555555181 <+24>:	pop    %rbp
+   0x0000555555555182 <+25>:	ret
+End of assembler dump.
+(gdb) rip            0x5555555551f9      0x5555555551f9 <main+118>
+(gdb) Continuing.
+Addresses:
+Data (Global Initialized): 0x555555558010
+Text String (ROData): 0x555555556008
+Text Code (Function): 0x555555555169
+Executing within the text segment instruction block.
+Ready for Text/Data segment inspection!
+[Inferior 1 (process 5582) exited normally]
+(gdb) 

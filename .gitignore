@@ -11,3 +11,8 @@ a.out
 Thumbs.db
 .vscode/
 .idea/
+
+# Lab 2.1 compiled executables
+/lab-02-1/src/procinfo
+/lab-02-1/src/procinfo_static
+/lab-02-1/src/procinfo_dynamic

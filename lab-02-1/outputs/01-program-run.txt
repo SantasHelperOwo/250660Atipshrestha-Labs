@@ -1,0 +1,5 @@
+=== Process Information ===
+My Process ID (PID):  1950
+Parent Process ID:    1932
+Current Time:         Sat Nov 21 04:35:18 2026
+Executable Path:      /proc/self/exe

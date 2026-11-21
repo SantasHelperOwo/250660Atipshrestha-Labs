@@ -1,0 +1,5 @@
+# Screenshot 05: info locals; x/4wx $sp
+stack_local_var = 42
+heap_ptr = 0x555555559010
+$sp = 0x7fffffffdb80
+0x7fffffffdb80: 0x00000000 0x00000000 0x00000000 0x0000002a

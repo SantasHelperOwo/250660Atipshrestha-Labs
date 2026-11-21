@@ -1,0 +1,2 @@
+# Screenshot 06: x/1wd heap_ptr
+0x555555559010: 99

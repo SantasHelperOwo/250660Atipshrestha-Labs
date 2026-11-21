@@ -1,0 +1,14 @@
+$ readelf -lW demo
+Elf file type is DYN (Position-Independent Executable file)
+Entry point 0x10e0
+There are 14 program headers, starting at offset 64
+
+Program Headers:
+  Type   Offset   VirtAddr           PhysAddr           FileSiz  MemSiz   Flg Align
+  LOAD   0x000000 0x0000000000000000 0x0000000000000000 0x000710 0x000710 R   0x1000
+  LOAD   0x001000 0x0000000000001000 0x0000000000001000 0x0002bd 0x0002bd R E 0x1000
+  LOAD   0x002000 0x0000000000002000 0x0000000000002000 0x000198 0x000198 R   0x1000
+  LOAD   0x002d98 0x0000000000003d98 0x0000000000003d98 0x000278 0x000280 RW  0x1000
+
+Section to Segment mapping:
+  05 .init_array .fini_array .dynamic .got .data .bss

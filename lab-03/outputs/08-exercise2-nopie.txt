@@ -1,0 +1,10 @@
+Variable addresses by segment
+global_initialized:   0x404040 (Data, initialized global)
+global_uninitialized: 0x40404c (BSS, uninitialized global)
+local_var:            0x7fffae03dc34 (Stack, local variable)
+local_static:         0x404044 (Data, initialized static local)
+heap_var:             0x7fffae03dc38 (Stack, pointer variable)
+*heap_var:            0x386f5010 (Heap, allocated integer)
+Highest address:      Stack (heap_var, 0x7fffae03dc38)
+Lowest address:       Data (global_initialized, 0x404040)
+Stack-to-heap difference: 0x7fff75948c24 (140735166057508 bytes)

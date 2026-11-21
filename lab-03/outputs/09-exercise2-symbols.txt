@@ -1,0 +1,5 @@
+   text	   data	    bss	    dec	    hex	filename
+   3382	    648	      8	   4038	    fc6	exercise2_segments
+0000000000004010 D global_initialized
+000000000000401c B global_uninitialized
+0000000000004014 d local_static.0

@@ -23,5 +23,6 @@ ps aux | grep task1
 
 ## Folders
 
-`lab-02-1/` contains the C source, original brief, terminal screenshots, output log, and lab README.
+`lab-02/` contains the source, original brief, screenshots, and output log.
+
 
